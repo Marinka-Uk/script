@@ -11,8 +11,23 @@ type Track={
     isPopular: boolean
 }
 
-const track ={
+const track: Track ={
     name: 'Track1',
     rating: 3,
     isPopular: true
 }
+
+//composition
+
+const id: string | number = '1234';
+
+//union 
+type Alert = 'warning' | 'error' | 'succes'
+const alert: Alert = 'error';
+const notification: Alert = 'succes'
+
+//unoin 2 
+
+type Return =  'outOf' | 'inStock'
+
+const return: Return = 'inStock';
