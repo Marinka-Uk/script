@@ -4,11 +4,24 @@ import './App.css';
 import {Form} from './components/Form'
 import {List} from './components/List'
 
+
+
+export interface IWish{
+
+  id: number,
+  wish: string,
+}
+
+
+
 export const App =() =>{
 
-    const [wish, setWish] = useState([])
+    const [wishes, setWish] = useState<IWish[]>([])
 
-const addWish = (wish)=>{
+
+
+
+const addWish = (wish: string)=>{  
 
 const newWish={
   id: Date.now(),
@@ -16,19 +29,19 @@ const newWish={
 }
 
 
-  setWish(...wishes, newWish)
+  setWish([...wishes, newWish])
 }
-const deleteWisg =(id)=>{
+const deleteWish =(id: number)=>{
   const arr = wishes.filter((wish)=>{
     return wish.id !== id
   })
-  setWishes(arr)
+  setWish(arr)
 }
 
 
 return <>
 <Form addWish={addWish}/>
-<List />
+<List delete={deleteWish} wish={wishes}/>
 </>
 }
 

@@ -1,14 +1,19 @@
-import { useState } from "react"
+import { FC, useState } from "react"
+import { Interface } from "readline"
 
-export const Form = ({addWish}) =>{
-    const [textValue, setTextValue] = useState('')
+interface IPropsForm{
+    addWish: (wish:string)=>void
+}
+
+export const Form:FC<IPropsForm> = ({addWish}) =>{
+    const [textValue, setTextValue] = useState<string>('')
 
 
     const handleChange = (e) =>{
         setTextValue(e.currentTarget.value)
     }
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = (e:FormEvent)=>{
          e.preventDefault()
 
          const form = e.currentTarget
